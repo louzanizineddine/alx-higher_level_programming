@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def print_ld(i):
+def print_last_digit(i):
     ld = 0
     if i < 0:
         temp = i * -1
