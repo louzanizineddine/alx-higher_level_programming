@@ -4,4 +4,5 @@
 
 
 class Rectangle():
+    ''' emtpy Rectangle class'''
     pass
