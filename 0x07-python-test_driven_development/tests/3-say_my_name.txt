@@ -1,0 +1,25 @@
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+>>> say_my_name("LOUZANI", "zineddine")
+My name is LOUZANI zineddine
+
+
+>>> say_my_name("123", "456")
+My name is 123 456
+
+>>> say_my_name("", "")
+My name is  
+
+>>> try:
+...     say_my_name(123, "Doe")
+... except TypeError as e:
+...     print(e)
+...
+first_name must be a string
+
+>>> try:
+...     say_my_name("John", 123)
+... except TypeError as e:
+...     print(e)
+...
+last_name must be a string
