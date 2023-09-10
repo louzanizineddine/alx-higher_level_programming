@@ -1,0 +1,1 @@
+oop is about inheritance
