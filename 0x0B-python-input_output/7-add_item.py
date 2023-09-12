@@ -16,4 +16,4 @@ try:
 except Exception as e:
     save_to_json_file([], "add_item.json")
 all_arguments += (arguments)
-save_to_json_file(all_args, "add_item.json")
+save_to_json_file(all_arguments, "add_item.json")
