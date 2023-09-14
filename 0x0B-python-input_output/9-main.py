@@ -11,3 +11,4 @@ for student in students:
     print(j_student['age'])
     print(type(j_student['age']))
     print(student.to_json())
+    print(type(student.to_json()))
