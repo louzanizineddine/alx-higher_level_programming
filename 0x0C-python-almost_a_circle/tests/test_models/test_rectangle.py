@@ -53,5 +53,10 @@ class RectangleTest(unittest.TestCase):
         r1 = Rectangle(12, 12)
         self.assertEqual(r1.area(), 12 * 12)
 
+    def test_str(self):
+        """test string repr"""
+        r = Rectangle(3, 4, 1, 2, 5)
+        self.assertEqual(str(r), "[Rectangle] (5) 1/2 - 3/4")
+
 if __name__ == "__main__":
     unittest.main()
