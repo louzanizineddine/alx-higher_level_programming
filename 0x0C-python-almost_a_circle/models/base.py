@@ -2,6 +2,7 @@
 
 """BASE MODULE HAS ONE CLASS BASE"""
 import json
+import os
 
 class Base:
     """class base has one private attribute"""
@@ -39,3 +40,39 @@ class Base:
 
         with open(filename, 'w') as f:
             f.write(cls.to_json_string(list_dic))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """from json string to dictionary"""
+        if not json_string:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Create an instance """
+        if cls.__name__ == "Rectangle":
+            rec = cls(10, 10)
+        else:
+            rec = cls(10)
+        rec.update(**dictionary)
+        return rec 
+
+    @classmethod
+    def load_from_file(cls):
+        """ Return all instances of class been saved in file"""
+        file = "{}.json".format(cls.__name__)
+
+        if os.path.exists(file) is False:
+            return []
+
+        with open(file, 'r') as f:
+            list_str = f.read()
+
+        classes_list = cls.from_json_string(list_str)
+        instances_list = []
+
+        for index in range(len(classes_list)):
+            instances_list.append(cls.create(**classes_list[index]))
+
+        return instances_list 
