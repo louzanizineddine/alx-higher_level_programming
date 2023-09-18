@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """RECTANGLE MODULE HAS THE CALSS RECTANGLE"""
 
 from models.rectangle import Rectangle
@@ -5,6 +7,7 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """class Square inherits from Recntangle"""
+
     def __init__(self, size, x=0, y=0, id=None):
         """Initialzie square class"""
         super().__init__(size, size, x, y, id)
@@ -22,15 +25,15 @@ class Square(Rectangle):
 
     def __str__(self):
         """overrite the __str__ method"""
-        return "[Square] ({}) {}/{} - {}".format(self.id, 
-                                                    self.x, 
-                                                    self.y,
-                                                    self.size)
+        return "[Square] ({}) {}/{} - {}".format(self.id,
+                                                 self.x,
+                                                 self.y,
+                                                 self.size)
 
     def update(self, *args, **kwargs):
         """function to update the attributes of rectangle"""
         if args is not None and len(args) > 0:
-            for index, arg  in enumerate(args):
+            for index, arg in enumerate(args):
                 if index == 0:
                     self.id = arg
                 elif index == 1:
@@ -38,7 +41,7 @@ class Square(Rectangle):
                 elif index == 2:
                     self.x = arg
                 elif index == 3:
-                    self.y  = arg
+                    self.y = arg
         else:
             if kwargs.get("id"):
                 self.id = kwargs["id"]

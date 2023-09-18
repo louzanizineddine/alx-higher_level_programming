@@ -1,19 +1,15 @@
+#!/usr/bin/python3
+
 """RECTANGLE MODULE HAS THE CALSS RECTANGLE"""
 
 from models.base import Base
+
 
 class Rectangle(Base):
     """calss rectangle that inherits from Base"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """
-        Args:
-            width: The width of the rectangle.
-            height: The height of the rectangle.
-            x: The x-coordinate of the top-left corner of the rectangle.
-            y: The y-coordinate of the top-left corner of the rectangle.
-            id: The ID of the rectangle.
-        """
+        """constructor method for the rectangle class"""
         super().__init__(id)
         self.__height = height
         self.__width = width
@@ -60,7 +56,8 @@ class Rectangle(Base):
             raise TypeError("x must be an integer")
         if x <= 0:
             raise ValueError("x must be >= 0")
-        self.__x = x 
+        self.__x = x
+
     @property
     def y(self):
         """Get the width of the rectangle."""
@@ -73,29 +70,33 @@ class Rectangle(Base):
             raise TypeError("y must be an integer")
         if y <= 0:
             raise ValueError("y must be >= 0")
-        self.__y = y 
-    
+        self.__y = y
+
     def area(self):
         """calculatet the area of rectangle"""
         return self.__height * self.__width
-    
+
     def display(self):
-        """dispaly the rectangle using the char #"""
-        for _ in range(self.__height):
-            print('#' * self.__width)
+        """ displays a rectangle """
+        for j in range(self.y):
+            print()
+        for i in range(self.__height):
+            print(" " * self.x, end="")
+            print("#" * self.__width)
 
     def __str__(self):
         """overrite the __str__ method"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, 
-                                                    self.__x, 
-                                                    self.__y,
-                                                    self.__width,
-                                                    self.__height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id,
+            self.__x,
+            self.__y,
+            self.__width,
+            self.__height)
 
     def update(self, *args, **kwargs):
         """function to update the attributes of rectangle"""
         if args is not None and len(args) > 0:
-            for index, arg  in enumerate(args):
+            for index, arg in enumerate(args):
                 if index == 0:
                     self.id = arg
                 elif index == 1:
@@ -103,7 +104,7 @@ class Rectangle(Base):
                 elif index == 2:
                     self.__height = arg
                 elif index == 3:
-                    self.__x  = arg
+                    self.__x = arg
         else:
             if kwargs.get("id"):
                 self.id = kwargs["id"]
