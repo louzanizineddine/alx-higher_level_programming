@@ -1,9 +1,10 @@
 #!/usr/bin/node
 const request = require('request');
 
-request
-  .get(process.argv[2])
-  .on('response', (res) => {
-    console.log(response.statusCode)
-  })
-
+request(`https://swapi-api.alx-tools.com/api/films/${process.argv[2]}`, (err, res, content) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(JSON.parse(content).title);
+});
